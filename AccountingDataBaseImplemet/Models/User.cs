@@ -16,7 +16,7 @@ namespace AccountingDataBaseImplemet.Models
         [Required]
         public string Login { get; private set; }
 
-        public List<LoginAttempt> LoginAttempts { get; set; }
+        public List<DateTime> LoginAttempts { get; set; }
 
         [Required]
         public List<string> CityOptions { get; private set; }
@@ -27,7 +27,7 @@ namespace AccountingDataBaseImplemet.Models
         public User()
         {
             Login = string.Empty;
-            LoginAttempts = new List<LoginAttempt>();
+            LoginAttempts = new List<DateTime>();
             CityOptions = new List<string>();
             CreationDate = DateTime.Now;
         }

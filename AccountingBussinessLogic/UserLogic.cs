@@ -95,7 +95,7 @@ namespace AccountingBussinessLogic
             }
 
             _logger.LogInformation("User. Id:{Id}.Login:{Login}.LastLoginAttempts:{LastLoginAttempts}.CityOptions:{CityOptions}.CreationDate:{CreationDate}",
-                model.Id, model.Login, model.LastLoginAttempts, model.CityOptions, model.CreationDate);
+                model.Id, model.Login, model.LoginAttempts, model.CityOptions, model.CreationDate);
             var element = _userStorage.GetElement(new UserSearchModel
             {
                 Login = model.Login

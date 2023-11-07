@@ -9,9 +9,8 @@ namespace AccountingDataModels.Models
     public interface IUserModel : IId
     {
         string Login { get; }
-        List<das> LoginAttempts { get; }
+        List<DateTime> LoginAttempts { get; }
         List<string> CityOptions { get; }
         DateTime CreationDate { get; }
     }
 }
-    

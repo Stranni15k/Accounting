@@ -1,4 +1,4 @@
-namespace Accounting
+namespace AccountingMain
 {
     internal static class Program
     {

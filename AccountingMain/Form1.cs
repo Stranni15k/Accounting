@@ -1,4 +1,4 @@
-namespace Accounting
+namespace AccountingMain
 {
     public partial class Form1 : Form
     {

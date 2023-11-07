@@ -11,7 +11,7 @@ namespace AccountingContracts
     {
         public int Id { get; set; }
         public string Login { get; set; } = string.Empty;
-        public List<DateTime> LastLoginAttempts { get; set; }
+        public List<DateTime> LoginAttempts { get; set; }
         public List<string> CityOptions { get; set; }
         public DateTime CreationDate { get; set; }
     }

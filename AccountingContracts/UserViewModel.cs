@@ -13,7 +13,7 @@ namespace AccountingContracts
         [DisplayName("Логин")]
         public string Login { get; set; } = string.Empty;
         [DisplayName("Предупреждение")]
-        public List<DateTime> LastLoginAttempts { get; set; }
+        public List<DateTime> LoginAttempts { get; set; }
         [DisplayName("Города проживания")]
         public List<string> CityOptions { get; set; }
         [DisplayName("Дата создания аккаунта")]
