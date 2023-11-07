@@ -9,14 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ComponentsLibraryNet60" Version="1.0.0" />
+    <PackageReference Include="ControlsLibraryNet60" Version="1.0.0" />
+    <PackageReference Include="CustListBox" Version="1.0.0" />
+    <PackageReference Include="CustomComponents" Version="1.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MyListBoxLibrary" Version="1.0.3" />
+    <PackageReference Include="WordDiagranLibrary" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccountingBussinessLogic\AccountingBussinessLogic.csproj" />
+    <ProjectReference Include="..\AccountingContracts\AccountingContracts.csproj" />
     <ProjectReference Include="..\AccountingDataBaseImplemet\AccountingDataBaseImplemet.csproj" />
+    <ProjectReference Include="..\AccountingDataModels\AccountingDataModels.csproj" />
   </ItemGroup>
 
 </Project>

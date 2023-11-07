@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,14 @@ namespace AccountingDataBaseImplemet
             base.OnConfiguring(optionsBuilder);
         }
         public virtual DbSet<User> Users { set; get; }
+        public virtual DbSet<City> Citys { set; get; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<City>()
+                .HasMany(p => p.Users)
+                .WithOne(e => e.City)
+                .OnDelete(DeleteBehavior.NoAction);
+        }
     }
 }

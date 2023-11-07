@@ -8,65 +8,66 @@ using System.Threading.Tasks;
 
 namespace AccountingBussinessLogic
 {
-    public class UserLogic : IUserLogic
+    public class CityLogic : ICityLogic
     {
-        private readonly IUserStorage _userStorage;
-        public UserLogic(IUserStorage userStorage)
+        private readonly ICityStorage _CityStorage;
+        public CityLogic(ICityStorage CityStorage)
         {
-            _userStorage = userStorage;
+            _CityStorage = CityStorage;
         }
-        public List<UserViewModel>? ReadList(UserSearchModel? model)
+        public List<CityViewModel>? ReadList(CitySearchModel? model)
         {
-            var list = model == null ? _userStorage.GetFullList() : _userStorage.GetFilteredList(model);
+            var list = model == null ? _CityStorage.GetFullList() : _CityStorage.GetFilteredList(model);
             if (list == null)
             {
                 return null;
             }
             return list;
         }
-        public UserViewModel? ReadElement(UserSearchModel model)
+        public CityViewModel? ReadElement(CitySearchModel model)
         {
             if (model == null)
             {
                 throw new ArgumentNullException(nameof(model));
             }
-            var element = _userStorage.GetElement(model);
+            var element = _CityStorage.GetElement(model);
             if (element == null)
             {
                 return null;
             }
             return element;
         }
-        public bool Create(UserBindingModel model)
+        public bool Create(CityBindingModel model)
         {
             CheckModel(model);
-            if (_userStorage.Insert(model) == null)
+            if (_CityStorage.Insert(model) == null)
             {
                 return false;
             }
             return true;
         }
-        public bool Delete(UserBindingModel model)
+        public bool Delete(CityBindingModel model)
         {
             CheckModel(model, false);
 
-            if (_userStorage.Delete(model) == null)
+
+            if (_CityStorage.Delete(model) == null)
             {
                 return false;
             }
 
             return true;
         }
-        public bool Update(UserBindingModel model)
+        public bool Update(CityBindingModel model)
         {
             CheckModel(model);
-            if (_userStorage.Update(model) == null)
+            if (_CityStorage.Update(model) == null)
             {
                 return false;
             }
             return true;
         }
-        private void CheckModel(UserBindingModel model, bool withParams = true)
+        private void CheckModel(CityBindingModel model, bool withParams = true)
         {
             if (model == null)
             {
@@ -76,14 +77,14 @@ namespace AccountingBussinessLogic
             {
                 return;
             }
-            if (string.IsNullOrEmpty(model.Login))
+            if (string.IsNullOrEmpty(model.CityName))
             {
-                throw new ArgumentNullException("Нет логина оператора", nameof(model.Login));
+                throw new ArgumentNullException("Нет названия города", nameof(model.CityName));
             }
 
-            var element = _userStorage.GetElement(new UserSearchModel
+            var element = _CityStorage.GetElement(new CitySearchModel
             {
-                Login = model.Login
+                CityName = model.CityName
             });
             if (element != null && element.Id != model.Id)
             {

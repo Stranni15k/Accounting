@@ -3,6 +3,8 @@ using AccountingDataModels.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,22 +17,15 @@ namespace AccountingDataBaseImplemet.Models
 
         [Required]
         public string Login { get; private set; }
-
-        public List<DateTime> LoginAttempts { get; set; }
+        [Required]
+        public string UserLoginAttempts { get; private set; }
 
         [Required]
-        public List<string> CityOptions { get; private set; }
+        public int CityId { get; private set; }
+        public virtual City City { get; set; }
 
         [Required]
         public DateTime CreationDate { get; private set; }
-
-        public User()
-        {
-            Login = string.Empty;
-            LoginAttempts = new List<DateTime>();
-            CityOptions = new List<string>();
-            CreationDate = DateTime.Now;
-        }
 
         public static User? Create(UserBindingModel model)
         {
@@ -43,35 +38,30 @@ namespace AccountingDataBaseImplemet.Models
             {
                 Id = model.Id,
                 Login = model.Login,
-                LoginAttempts = model.LoginAttempts,
-                CityOptions = model.CityOptions,
-                CreationDate = model.CreationDate
+                CityId = model.CityId,
+                CreationDate = model.CreationDate,
+                UserLoginAttempts = model.UserLoginAttempts
             };
         }
-
         public void Update(UserBindingModel model)
         {
             if (model == null)
             {
                 return;
             }
-
             Login = model.Login;
-            LoginAttempts = model.LoginAttempts;
-            CityOptions = model.CityOptions;
-            CreationDate = model.CreationDate;
+            CityId = model.CityId;
+            UserLoginAttempts = UserLoginAttempts;
         }
-
-        public UserViewModel GetViewModel()
+        public UserViewModel GetViewModel => new()
         {
-            return new UserViewModel
-            {
-                Id = Id,
-                Login = Login,
-                LoginAttempts = LoginAttempts,
-                CityOptions = CityOptions,
-                CreationDate = CreationDate
-            };
-        }
+            Id = Id,
+            Login = Login,
+            CityId = CityId,
+            CityName = City?.CityName,
+            CreationDate = CreationDate,
+            UserLoginAttempts = UserLoginAttempts
+
+        };
     }
 }
