@@ -191,6 +191,8 @@ namespace AccountingMain
                     filePath, "Пользователи", "Diagram",
                     WordDiagranLibrary.LegendPosition.Bottom,
                     dictionary, citiesWithUsers));
+                MessageBox.Show("Сохарнено успешно", "Результат",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -258,7 +260,8 @@ namespace AccountingMain
                     },
                     Data = list
                 });
-
+                MessageBox.Show("Сохарнено успешно", "Результат",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -117,6 +117,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1004, 533);
+            ContextMenuStrip = contextMenuStrip1;
             Controls.Add(controlDataListTable1);
             Name = "FormMain";
             Text = "Пользователи";

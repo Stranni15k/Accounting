@@ -26,6 +26,7 @@
     <ProjectReference Include="..\AccountingContracts\AccountingContracts.csproj" />
     <ProjectReference Include="..\AccountingDataBaseImplemet\AccountingDataBaseImplemet.csproj" />
     <ProjectReference Include="..\AccountingDataModels\AccountingDataModels.csproj" />
+    <ProjectReference Include="..\PluginsConventionLibrary\PluginsConventionLibrary.csproj" />
   </ItemGroup>
 
 </Project>
